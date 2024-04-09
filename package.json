@@ -13,7 +13,8 @@
   "dependencies": {
     "cli": "^1.0.1",
     "firebase": "^10.10.0",
-    "vue": "^3.4.21"
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",
