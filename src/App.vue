@@ -1,3 +1,31 @@
+<<<<<<< HEAD
+<template>
+  <v-app>
+    <v-main>
+      <HelloWorld/>
+    </v-main>
+  </v-app>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import HelloWorld from './components/HelloWorld.vue'
+
+export default defineComponent({
+  name: 'App',
+
+  components: {
+    HelloWorld,
+  },
+
+  data () {
+    return {
+      //
+    }
+  },
+})
+</script>
+=======
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
@@ -23,9 +51,32 @@ import TheWelcome from "./components/TheWelcome.vue";
   </main>
 </template>
 
-<script>
-export default {
-  name: 'App'
+<style scoped>
+header {
+  line-height: 1.5;
 }
-</script>
 
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+</style>
+>>>>>>> parent of 6732e5a (firebase connectivity test)
