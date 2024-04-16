@@ -13,15 +13,11 @@
     "@mdi/font": "5.9.55",
     "cli": "^1.0.1",
     "firebase": "^10.10.0",
-<<<<<<< HEAD
     "roboto-fontface": "*",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "vuetify": "^3.0.0-beta.0",
     "webfontloader": "^1.0.0"
-=======
-    "vue": "^3.4.21"
->>>>>>> parent of 6732e5a (firebase connectivity test)
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",
