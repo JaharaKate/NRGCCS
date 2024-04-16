@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <template>
   <v-container>
     <v-row class="text-center">
@@ -153,6 +154,8 @@ export default defineComponent({
 })
 </script>
 =======
+=======
+>>>>>>> parent of 6732e5a (firebase connectivity test)
 <script setup lang="ts">
 defineProps<{
   msg: string
@@ -194,4 +197,7 @@ h3 {
   }
 }
 </style>
+<<<<<<< HEAD
+>>>>>>> parent of 6732e5a (firebase connectivity test)
+=======
 >>>>>>> parent of 6732e5a (firebase connectivity test)
