@@ -1,20 +1,21 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import LoginPage from '@/components/LoginPage.vue';
-import LandingPage from '@/components/LandingPage.vue';
-import AdminPage0 from '@/components/AdminPage0.vue';
-import AdminPage1 from '@/components/AdminPage1.vue';
+import { createRouter, createWebHistory } from "vue-router";
+import LoginPage from "@/components/LoginPage.vue";
+import LandingPage from "@/components/LandingPage.vue";
+import AdminPage0 from "@/components/AdminPage0.vue";
+import AdminPage1 from "@/components/AdminPage1.vue";
+import HomePage from "@/components/HomePage.vue";
 
 const routes = [
-  { path: '/', component: LandingPage },
-  { path: '/login', component: LoginPage },
-  { path: '/admin0', component: AdminPage0 },
-  { path: '/admin1', component: AdminPage1},
-
+  { path: "/", component: LandingPage },
+  { path: "/login", component: LoginPage },
+  { path: "/admin0", component: AdminPage0 },
+  { path: "/admin1", component: AdminPage1 },
+  { path: "/homepage", component: HomePage },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 });
 
 export default router;
