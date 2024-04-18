@@ -1,5 +1,92 @@
 <template>
   <div>
+    <div class="text-center ma-4">
+      <v-img
+        :aspect-ratio="1"
+        class="bg-white d-inline-block"
+        src="/src/components/img/nrgccs.png"
+        width="300"
+      ></v-img>
+      <div
+        class="welcome-text"
+        style="color: #ad0606; font-weight: bold; margin-top: -10px"
+        margin-top="-20px"
+      >
+        Welcome Admin!
+      </div>
+      <div class="subtitle-text" style="color: #ad0606">
+        Sign in to NRGCCS admin configuration portal
+      </div>
+    </div>
+
+    <hr style="border-top: 3px solid #ad0606; margin: 20px auto; width: 30%" />
+
+    <v-card class="mx-auto px-6 py-8" max-width="344" flat>
+      <div
+        class="text-subtitle-1 text-medium-emphasis"
+        style="color: #ad0606 !important"
+      >
+        Account
+      </div>
+
+      <v-text-field
+        density="compact"
+        placeholder="Email address"
+        variant="outlined"
+      ></v-text-field>
+
+      <div
+        class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
+        style="color: #ad0606 !important"
+      >
+        Password
+
+        <a
+          class="text-caption text-decoration-none"
+          href="#"
+          rel="noopener noreferrer"
+          target="_blank"
+          style="color: #ad0606 !important"
+        >
+          Forgot login password?
+        </a>
+      </div>
+
+      <v-text-field
+        :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+        :type="visible ? 'text' : 'password'"
+        density="compact"
+        placeholder="Enter your password"
+        variant="outlined"
+        @click:append-inner="visible = !visible"
+      ></v-text-field>
+
+      <v-btn
+        class="mb-8"
+        color="white"
+        size="large"
+        variant="solid"
+        block
+        style="background-color: #ad0606"
+      >
+        Log In
+      </v-btn>
+    </v-card>
+  </div>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    visible: false,
+  }),
+};
+</script>
+
+<!-- Jahara Added-->
+
+<!--<template>
+  <div>
     <h2>Login</h2>
     <form @submit.prevent="login">
       <label>Admin Level:</label>
@@ -61,4 +148,4 @@ export default {
     }
   }
 };
-</script>
+</script>-->
