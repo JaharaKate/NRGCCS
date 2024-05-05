@@ -1,11 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="navbar-container">
-      <img
-        src="/src/components/img/nrgccs.png"
-        alt="NRGCCS Logo"
-        class="logo"
-      />
+      <img src="/src/assets/img/nrgccs.png" alt="NRGCCS Logo" class="logo" />
       <ul class="navbar-menu">
         <li><a href="home">Home</a></li>
         <li><a href="about">Overview</a></li>
@@ -28,53 +24,25 @@
   <v-container fluid class="logo-section">
     <v-layout row wrap align-center justify-center>
       <v-flex xs12 sm6 md4 lg2>
-        <img
-          src="/src/components/img/nrgccs.png"
-          alt="Logo 2"
-          class="logo-image"
-        />
+        <img src="/src/assets/img/nrgccs.png" alt="Logo 2" class="logo-image" />
       </v-flex>
       <v-flex xs12 sm6 md4 lg2>
-        <img
-          src="/src/components/img/logo1.png"
-          alt="Logo 1"
-          class="logo-image"
-        />
+        <img src="/src/assets/img/logo1.png" alt="Logo 1" class="logo-image" />
       </v-flex>
       <v-flex xs12 sm6 md4 lg2>
-        <img
-          src="/src/components/img/logo2.png"
-          alt="Logo 2"
-          class="logo-image"
-        />
+        <img src="/src/assets/img/logo2.png" alt="Logo 2" class="logo-image" />
       </v-flex>
       <v-flex xs12 sm6 md4 lg2>
-        <img
-          src="/src/components/img/logo3.png"
-          alt="Logo 3"
-          class="logo-image"
-        />
+        <img src="/src/assets/img/logo3.png" alt="Logo 3" class="logo-image" />
       </v-flex>
       <v-flex xs12 sm6 md4 lg2>
-        <img
-          src="/src/components/img/logo4.png"
-          alt="Logo 4"
-          class="logo-image"
-        />
+        <img src="/src/assets/img/logo4.png" alt="Logo 4" class="logo-image" />
       </v-flex>
       <v-flex xs12 sm6 md4 lg2>
-        <img
-          src="/src/components/img/logo5.png"
-          alt="Logo 5"
-          class="logo-image"
-        />
+        <img src="/src/assets/img/logo5.png" alt="Logo 5" class="logo-image" />
       </v-flex>
       <v-flex xs12 sm6 md4 lg2>
-        <img
-          src="/src/components/img/logo6.png"
-          alt="Logo 6"
-          class="logo-image"
-        />
+        <img src="/src/assets/img/logo6.png" alt="Logo 6" class="logo-image" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -220,7 +188,7 @@ export default {
   font-size: 20px;
 }
 .home-section {
-  background-image: url("/src/components/img/home-nrgccs.png");
+  background-image: url("/src/assets/img/home-nrgccs.png");
   background-size: cover;
   background-position: center;
   height: 100vh;
