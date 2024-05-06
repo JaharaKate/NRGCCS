@@ -1,6 +1,6 @@
 <script setup>
-import AdminHeader from "../components/AdminHeader.vue";
-import AdminBody from "../components/AdminBody.vue";
+import AdminHeader from "../components/AdminComponents/AdminHeader.vue";
+import AdminBody from "../components/AdminComponents/AdminBody.vue";
 </script>
 
 <template>
