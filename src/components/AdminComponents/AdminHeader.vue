@@ -3,7 +3,7 @@
 <template>
   <header>
     <div>
-      <img src="../assets/img/nrgccs.png" />
+      <img src="@/assets/img/nrgccs.png" />
       <h4>NRGCCS admin configuration portal</h4>
     </div>
     <h4>Log Out</h4>
@@ -19,6 +19,7 @@ header {
   h4 {
     align-self: right;
     margin-right: 5vw;
+    font-size: 1.3em;
   }
 }
 div {
