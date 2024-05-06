@@ -1,8 +1,10 @@
-<script setup></script>
+<script setup>
+import SectionSelector from "./SectionSelector.vue";
+</script>
 
 <template>
   <div id="box-container">
-    <div id="side-container"><p>HELLO WORLD</p></div>
+    <div id="side-container"><SectionSelector /></div>
     <div id="main-container"></div>
   </div>
   <div></div>
@@ -25,7 +27,7 @@ p {
   background-color: #d9d9d9;
   height: 100%;
   width: 20vw;
-  box-shadow: inset gray -50px 0px 40px -40px;
+  box-shadow: inset gray -40px 0px 40px -40px;
 }
 #main-container {
   background-color: #f2f2f2;
