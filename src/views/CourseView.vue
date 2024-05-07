@@ -1,16 +1,11 @@
 <script setup>
 import Header from "@/components/Header.vue";
+import Banner from "@/components/Banner.vue";
 </script>
 
 <template>
   <Header class="header" />
-  <div class="banner">
-    <p>COURSES</p>
-    <v-parallax
-      class="banner-img"
-      src="/src/assets/img/coursesbanner.png"
-    ></v-parallax>
-  </div>
+  <Banner />
 </template>
 
 <style lang="scss" scoped>
@@ -23,25 +18,4 @@ import Header from "@/components/Header.vue";
   z-index: 200;
 }
 
-.banner {
-  position: relative;
-  display: fle;
-  text-align: center;
-  justify-content: center;
-  width: 100vw;
-  height: 30vw;
-  .banner-img {
-  }
-  p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: "Arapey", serif;
-    font-size: 10em;
-    font-style: normal;
-    color: white;
-    z-index: 100;
-  }
-}
 </style>
