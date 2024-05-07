@@ -1,11 +1,17 @@
 <script setup>
 import Header from "@/components/Header.vue";
-import Banner from "@/components/Banner.vue";
+import LessonSlots from "@/components/LessonSlots.vue";
 </script>
 
 <template>
   <Header class="header" />
-  <Banner />
+  <LessonSlots>
+    <template #lesson-title>Lesson 1 - A Walk that is Always Worthwhile</template>
+    <template #lesson-img>
+      <img class="aba" src="/src/assets/img/course2.png"/>
+    </template>
+    <template #lesson-caption>Lesson 1 - A Walk that is Always Worthwhile</template>
+  </LessonSlots>
 </template>
 
 <style lang="scss" scoped>
@@ -16,6 +22,9 @@ import Banner from "@/components/Banner.vue";
   left: 0;
   width: 100%;
   z-index: 200;
+}
+.aba{
+  width: 50vw;
 }
 
 </style>
