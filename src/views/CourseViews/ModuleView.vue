@@ -44,7 +44,7 @@ onMounted(async () => {
   <Header class="header"></Header>
   <Banner>
     <template v-slot:title>{{ moduleName }}</template>
-    <template v-slot:subtitle>{{ test }}</template>
+    <template v-slot:subtitle></template>
   </Banner>
   <div class v-for="unit in units" :key="unit.id">
     <p>{{ unit.id }} : {{ unit.Unit_Name }}</p>
