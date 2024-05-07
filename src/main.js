@@ -36,7 +36,7 @@ app.use(router);
 app.mount("#app");
 
 // firestore
-const firebaseapp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export { db };
