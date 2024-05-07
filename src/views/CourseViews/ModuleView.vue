@@ -1,11 +1,15 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import Banner from "@/components/Banner.vue";
+defineProps({
+  moduleName: String,
+});
 </script>
 
 <template>
-  <Header class="header" />
-  <Banner />
+  <Header class="header"></Header>
+  <Banner>MODULE </Banner>
+  Module {{ moduleName }}
 </template>
 
 <style lang="scss" scoped>
@@ -17,5 +21,4 @@ import Banner from "@/components/Banner.vue";
   width: 100%;
   z-index: 200;
 }
-
 </style>
