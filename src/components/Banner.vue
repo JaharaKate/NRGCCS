@@ -17,6 +17,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&display=swap");
 .banner {
   position: relative;
+  margin-top: 67px;
   display: flex;
   text-align: center;
   justify-content: center;
