@@ -1,5 +1,6 @@
 <script setup>
 import Header from "@/components/Header.vue";
+import CourseCard from "@/components/CourseCard.vue";
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import Header from "@/components/Header.vue";
       src="/src/assets/img/coursesbanner.png"
     ></v-parallax>
   </div>
+  <CourseCard />
 </template>
 
 <style lang="scss" scoped>
@@ -30,8 +32,7 @@ import Header from "@/components/Header.vue";
   justify-content: center;
   width: 100vw;
   height: 30vw;
-  .banner-img {
-  }
+
   p {
     position: absolute;
     top: 50%;
