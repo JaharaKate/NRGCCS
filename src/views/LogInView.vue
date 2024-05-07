@@ -1,3 +1,24 @@
+<script setup>
+import router from "@/router";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { shallowRef } from "vue";
+const email = shallowRef("");
+const password = shallowRef("");
+
+const LogIn = () => {
+  if (email.value != "" && password.value != "") {
+    signInWithEmailAndPassword(getAuth(), email.value, password.value)
+      .then((data) => {
+        console.log("Succesfully logged in");
+        router.push("/admin/manage");
+      })
+      .catch((error) => {
+        alert(error.code);
+      });
+  }
+};
+</script>
+
 <template>
   <div>
     <div class="text-center ma-4">
@@ -31,8 +52,9 @@
 
       <v-text-field
         density="compact"
-        placeholder="Enter your username"
+        placeholder="Enter your email address"
         variant="outlined"
+        v-model="email"
       ></v-text-field>
 
       <div
@@ -49,6 +71,7 @@
         placeholder="Enter your password"
         variant="outlined"
         @click:append-inner="visible = !visible"
+        v-model="password"
       ></v-text-field>
 
       <v-btn
@@ -58,6 +81,7 @@
         variant="solid"
         block
         style="background-color: #ad0606"
+        @click="LogIn"
       >
         Log In
       </v-btn>
@@ -65,20 +89,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  data: () => ({
-    visible: false,
-  }),
-};
-</script>
-
 <!-- Jahara Added-->
 
 <!--<template>
     <div>
       <h2>Login</h2>
-      <form @submit.prevent="login">
+ style scoped> <form @submit.prevent="login">
         <label>Admin Level:</label>
         <input type="number" v-model="Adminlvl" min="0" max="1" required><br><br>
         <label>First Name:</label>
