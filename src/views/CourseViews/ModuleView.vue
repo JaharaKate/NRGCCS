@@ -3,21 +3,40 @@ import Header from "@/components/Header.vue";
 import Banner from "@/components/Banner.vue";
 import db from "@/main";
 import { onMounted, ref } from "vue";
-import { getDoc, doc } from "firebase/firestore";
+import { getDocs, collection, where, query } from "firebase/firestore";
 
-defineProps({
+const props = defineProps({
   moduleProp: String,
 });
-const moduleName = ref("Test");
+
+const moduleName = ref(props.moduleProp);
+
+const units = ref([]);
 
 onMounted(async () => {
-  const querySnapshot = await getDoc(doc(db, "Courses", "Course 1"));
-  if (querySnapshot.exists()) {
-    console.log("Document data:", querySnapshot.data());
-  } else {
-    // docSnap.data() will be undefined in this case
-    console.log("No such document!");
-  }
+  let fbunits = [];
+
+  const idsnapshot = await getDocs(
+    query(
+      collection(db, "Courses"),
+      where("Course_Name", "==", props.moduleProp)
+    )
+  );
+  let id = "";
+  idsnapshot.forEach((doc) => {
+    id = doc.id;
+    console.log(id);
+  });
+
+  const querySnapshot = await getDocs(collection(db, "Courses", id, "Units"));
+  querySnapshot.forEach((doc) => {
+    const unit = {
+      id: doc.id,
+      Unit_Name: doc.data().Unit_Name,
+    };
+    fbunits.push(unit);
+  });
+  units.value = fbunits;
 });
 </script>
 
@@ -27,6 +46,9 @@ onMounted(async () => {
     <template v-slot:title>{{ moduleName }}</template>
     <template v-slot:subtitle>{{ test }}</template>
   </Banner>
+  <div class v-for="unit in units" :key="unit.id">
+    <p>{{ unit.id }} : {{ unit.Unit_Name }}</p>
+  </div>
 </template>
 
 <style lang="scss" scoped>

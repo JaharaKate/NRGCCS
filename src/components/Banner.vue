@@ -28,11 +28,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 85%;
     font-family: "Arapey", serif;
     font-size: 10em;
     font-style: normal;
     color: white;
     z-index: 100;
+    text-wrap: wrap;
   }
 }
 .subtitle {
