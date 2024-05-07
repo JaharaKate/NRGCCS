@@ -33,6 +33,7 @@ const router = createRouter({
     },
     {
       path: "/courses/:moduleProp",
+      name: "module",
       component: import("../views/CourseViews/ModuleView.vue"),
       props: true,
     },
