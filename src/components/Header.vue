@@ -1,33 +1,40 @@
 <script setup lang="ts">
-
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
-    <nav class="navbar">
-    <div class="navbar-container">
-      <img src="/src/assets/img/nrgccs.png" alt="NRGCCS Logo" class="logo" />
-      <ul class="navbar-menu">
-        <li><a href="home">Home</a></li>
-        <li><a href="about">Overview</a></li>
-        <li><a href="about">Courses</a></li>
-      </ul>
+  <header class="navbar">
+    <img src="/src/assets/img/nrgccs.png" alt="NRGCCS Logo" class="logo" />
+    <div class="navbar">
+      <RouterLink class="item" to="/Home">Home</RouterLink>
+      <RouterLink class="item" to="/About">Overview</RouterLink>
+      <RouterLink class="item" to="/Courses">Courses</RouterLink>
     </div>
-    </nav>
+  </header>
 </template>
 
 <style lang="scss" scoped>
-.navbar {
-  background-color: whitesmoke;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
-.navbar-container {
+header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  justify-content: space-between;
+  padding: 0 4% 0 4%;
+  box-shadow: 0px 3px 20px 0px gray;
+  // horizontal vertical blur spread
+
+  img {
+    width: 80px;
+  }
+  .navbar {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+  }
+  a {
+    color: #ad0606;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
 }
 </style>
