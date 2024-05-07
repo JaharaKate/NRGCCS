@@ -2,6 +2,12 @@
 import Header from "@/components/Header.vue";
 import Banner from "@/components/Banner.vue";
 import CourseCard from "@/components/CourseCard.vue";
+
+const courses = [
+  {
+    CourseName: "Everyday English",
+  },
+];
 </script>
 
 <template>
@@ -10,8 +16,10 @@ import CourseCard from "@/components/CourseCard.vue";
     <template v-slot:title>COURSES</template>
     <template v-slot:subtitle>Learning Modules</template>
   </Banner>
-  <div class="course-view-content">
-    <CourseCard />
+  <div class="course-view">
+    <div class v-for="item in courses" :key="item.id">
+      <CourseCard class="card"> {{ item.CourseName }}</CourseCard>
+    </div>
   </div>
 </template>
 
@@ -24,8 +32,14 @@ import CourseCard from "@/components/CourseCard.vue";
   width: 100%;
   z-index: 200;
 }
-.course-view-content {
-  padding-top: 100px;
-  margin: 10px; /* Adjust as needed to avoid overlapping with header */
+.course-view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2%;
+  margin-top: 30px;
+}
+.card {
+  margin-bottom: 30px;
 }
 </style>
