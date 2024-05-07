@@ -2,12 +2,30 @@
 import Header from "@/components/Header.vue";
 import Banner from "@/components/Banner.vue";
 import CourseCard from "@/components/CourseCard.vue";
+import db from "@/main";
 
-const courses = [
-  {
-    CourseName: "Everyday English",
-  },
-];
+import { onMounted, ref } from "vue";
+import { getDocs, collection } from "firebase/firestore";
+import router from "@/router";
+
+const courses = ref([]);
+
+onMounted(async () => {
+  const querySnapshot = await getDocs(collection(db, "Courses"));
+  let fbcourses = [];
+  querySnapshot.forEach((doc) => {
+    const course = {
+      id: doc.id,
+      Course_Name: doc.data().Course_Name,
+    };
+    fbcourses.push(course);
+  });
+  courses.value = fbcourses;
+});
+
+const courseClick = (course) => {
+  router.push("/courses/" + course.Course_Name);
+};
 </script>
 
 <template>
@@ -17,8 +35,10 @@ const courses = [
     <template v-slot:subtitle>Learning Modules</template>
   </Banner>
   <div class="course-view">
-    <div class v-for="item in courses" :key="item.id">
-      <CourseCard class="card"> {{ item.CourseName }}</CourseCard>
+    <div class v-for="course in courses" :key="course.id">
+      <CourseCard class="card" @click="courseClick(course)">
+        {{ course.Course_Name }}</CourseCard
+      >
     </div>
   </div>
 </template>
