@@ -43,9 +43,10 @@ const router = createRouter({
       component: () => import("../views/CourseViews/LessonView.vue"),
     },
     {
-      path: "/unit/",
+      path: "/courses/:moduleProp/:unitProp",
       name: "unit",
       component: () => import("../views/CourseViews/UnitView.vue"),
+      props: true,
     },
   ],
 });
