@@ -5,7 +5,10 @@ import Banner from "@/components/Banner.vue";
 
 <template>
   <Header class="header" />
-  <Banner />
+  <Banner>
+    <template v-slot:title>COURSES</template>
+    <template v-slot:subtitle>Learning Modules</template>
+  </Banner>
 </template>
 
 <style lang="scss" scoped>
@@ -17,5 +20,4 @@ import Banner from "@/components/Banner.vue";
   width: 100%;
   z-index: 200;
 }
-
 </style>
