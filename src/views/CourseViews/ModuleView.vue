@@ -1,15 +1,32 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import Banner from "@/components/Banner.vue";
+import db from "@/main";
+import { onMounted, ref } from "vue";
+import { getDoc, doc } from "firebase/firestore";
+
 defineProps({
-  moduleName: String,
+  moduleProp: String,
+});
+const moduleName = ref("Test");
+
+onMounted(async () => {
+  const querySnapshot = await getDoc(doc(db, "Courses", "Course 1"));
+  if (querySnapshot.exists()) {
+    console.log("Document data:", querySnapshot.data());
+  } else {
+    // docSnap.data() will be undefined in this case
+    console.log("No such document!");
+  }
 });
 </script>
 
 <template>
   <Header class="header"></Header>
-  <Banner>MODULE </Banner>
-  Module {{ moduleName }}
+  <Banner>
+    <template v-slot:title>{{ moduleName }}</template>
+    <template v-slot:subtitle>{{ test }}</template>
+  </Banner>
 </template>
 
 <style lang="scss" scoped>

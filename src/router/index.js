@@ -32,7 +32,7 @@ const router = createRouter({
       component: () => import("../views/CourseViews/CourseView.vue"),
     },
     {
-      path: "/courses/:moduleName",
+      path: "/courses/:moduleProp",
       component: import("../views/CourseViews/ModuleView.vue"),
       props: true,
     },
