@@ -10,7 +10,7 @@ const LogIn = () => {
     signInWithEmailAndPassword(getAuth(), email.value, password.value)
       .then((data) => {
         console.log("Succesfully logged in");
-        router.push("/admin/manage");
+        router.push("/admin/");
       })
       .catch((error) => {
         alert(error.code);
