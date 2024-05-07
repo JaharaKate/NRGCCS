@@ -1,38 +1,25 @@
-<script setup>
-import Header from "@/components/Header.vue";
-import CourseCard from "@/components/CourseCard.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <Header class="header" />
   <div class="banner">
     <p>COURSES</p>
     <v-parallax
       class="banner-img"
       src="/src/assets/img/coursesbanner.png"
     ></v-parallax>
+    <!-- red part "Learning Modules" -->
   </div>
-  <CourseCard />
 </template>
 
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&display=swap");
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 200;
-}
-
 .banner {
   position: relative;
-  display: fle;
+  display: flex;
   text-align: center;
   justify-content: center;
   width: 100vw;
   height: 30vw;
-
   p {
     position: absolute;
     top: 50%;
