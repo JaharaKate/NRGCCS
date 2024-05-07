@@ -2,12 +2,14 @@
 
 <template>
   <div class="banner">
-    <p>COURSES</p>
+    <p><slot name="title"></slot></p>
     <v-parallax
       class="banner-img"
       src="/src/assets/img/coursesbanner.png"
     ></v-parallax>
-    <!-- red part "Learning Modules" -->
+  </div>
+  <div class="subtitle">
+    <p><slot name="subtitle"></slot></p>
   </div>
 </template>
 
@@ -31,5 +33,17 @@
     color: white;
     z-index: 100;
   }
+}
+.subtitle {
+  background-color: #ad0606;
+  p {
+    color: white;
+    font-size: 3em;
+  }
+
+  height: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

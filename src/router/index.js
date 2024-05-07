@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LandingPage from "../views/LandingPageView.vue";
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -33,9 +32,9 @@ const router = createRouter({
       component: () => import("../views/CourseViews/CourseView.vue"),
     },
     {
-      path: "/module/",
-      name: "module",
-      component: () => import("../views/CourseViews/ModuleView.vue"),
+      path: "/courses/:moduleName",
+      component: import("../views/CourseViews/ModuleView.vue"),
+      props: true,
     },
     {
       path: "/lesson/",
