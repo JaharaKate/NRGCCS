@@ -1,6 +1,7 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import Banner from "@/components/Banner.vue";
+import CourseCard from "@/components/CourseCard.vue";
 </script>
 
 <template>
@@ -9,6 +10,9 @@ import Banner from "@/components/Banner.vue";
     <template v-slot:title>COURSES</template>
     <template v-slot:subtitle>Learning Modules</template>
   </Banner>
+  <div class="course-view-content">
+    <CourseCard />
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -19,5 +23,9 @@ import Banner from "@/components/Banner.vue";
   left: 0;
   width: 100%;
   z-index: 200;
+}
+.course-view-content {
+  padding-top: 100px;
+  margin: 10px; /* Adjust as needed to avoid overlapping with header */
 }
 </style>
