@@ -5,7 +5,7 @@
       <ul class="navbar-menu">
         <li><a href="home">Home</a></li>
         <li><a href="about">Overview</a></li>
-        <li><a href="about">Courses</a></li>
+        <li><a href="courses">Courses</a></li>
       </ul>
     </div>
   </nav>
