@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import router from "@/router";
+
+const logOut = () => {
+  router.push("/admin/login");
+};
+</script>
 
 <template>
   <header>
@@ -6,7 +12,7 @@
       <img src="@/assets/img/nrgccs.png" />
       <h4>NRGCCS admin configuration portal</h4>
     </div>
-    <h4>Log Out</h4>
+    <button @click="logOut"><h4>Log Out</h4></button>
   </header>
 </template>
 
