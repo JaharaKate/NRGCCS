@@ -2,24 +2,24 @@
 
 <template>
   <button>
-    <v-card class="course-card">
+    <v-card class="lesson-card">
       <v-img
-        class="course-image"
+        class="lesson-image"
         src="/src/assets/img/course1.png"
         cover
       ></v-img>
-      <v-card-title class="course-text"><slot></slot></v-card-title>
+      <v-card-title class="lesson-text"><slot></slot></v-card-title>
     </v-card>
   </button>
 </template>
 
 <style lang="scss" scoped>
-.course-card {
+.lesson-card {
   width: 40vw;
   display: inline-block;
 }
 
-.course-text {
+.lesson-text {
   font-size: 2em;
   text-align: left;
   padding-left: 1em;
