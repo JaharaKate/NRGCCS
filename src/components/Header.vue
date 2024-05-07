@@ -20,6 +20,7 @@ header {
   justify-content: space-between;
   padding: 0 4% 0 4%;
   box-shadow: 0px 3px 20px 0px gray;
+  background-color: white;
   // horizontal vertical blur spread
 
   img {
