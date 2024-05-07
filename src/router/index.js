@@ -30,7 +30,22 @@ const router = createRouter({
     {
       path: "/courses/",
       name: "courses",
-      component: () => import("../views/CourseView.vue"),
+      component: () => import("../views/CourseViews/CourseView.vue"),
+    },
+    {
+      path: "/module/",
+      name: "module",
+      component: () => import("../views/CourseViews/ModuleView.vue"),
+    },
+    {
+      path: "/lesson/",
+      name: "lesson",
+      component: () => import("../views/CourseViews/LessonView.vue"),
+    },
+    {
+      path: "/unit/",
+      name: "unit",
+      component: () => import("../views/CourseViews/UnitView.vue"),
     },
   ],
 });
