@@ -38,9 +38,10 @@ const router = createRouter({
       props: true,
     },
     {
-      path: "/lesson/",
+      path: "/courses/:moduleProp/:unitProp/:lessonProp",
       name: "lesson",
       component: () => import("../views/CourseViews/LessonView.vue"),
+      props: true,
     },
     {
       path: "/courses/:moduleProp/:unitProp",
