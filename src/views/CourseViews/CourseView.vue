@@ -9,6 +9,7 @@ import { getDocs, collection } from "firebase/firestore";
 import router from "@/router";
 
 const courses = ref([]);
+const firebaseisLoaded = ref(false);
 
 onMounted(async () => {
   const querySnapshot = await getDocs(collection(db, "Courses"));
@@ -21,6 +22,7 @@ onMounted(async () => {
     fbcourses.push(course);
   });
   courses.value = fbcourses;
+  firebaseisLoaded.value = true;
 });
 
 const courseClick = (course) => {
@@ -30,11 +32,11 @@ const courseClick = (course) => {
 
 <template>
   <Header class="header" />
-  <Banner>
+  <Banner v-if="firebaseisLoaded">
     <template v-slot:title>COURSES</template>
     <template v-slot:subtitle>Learning Modules</template>
   </Banner>
-  <div class="course-view">
+  <div class="course-view" v-if="firebaseisLoaded">
     <div class v-for="course in courses" :key="course.id">
       <CourseCard class="card" @click="courseClick(course)">
         {{ course.Course_Name }}</CourseCard

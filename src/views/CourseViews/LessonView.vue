@@ -23,6 +23,7 @@ const props = defineProps({
 
 const lessonItems = ref({});
 const lessonNumber = ref("");
+const firebaseisLoaded = ref(false);
 
 onMounted(async () => {
   lessonNumber.value = props.lessonProp.replace("Lesson", "Lesson ");
@@ -51,12 +52,13 @@ onMounted(async () => {
   };
   lessonItems.value = fblesson;
   console.log(props.lessonProp);
+  firebaseisLoaded.value = true;
 });
 </script>
 
 <template>
   <Header />
-  <div class="lesson">
+  <div class="lesson" v-if="firebaseisLoaded">
     <p class="lesson-header">
       {{ lessonNumber }}
       {{ lessonItems.Lesson_Name }}

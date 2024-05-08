@@ -50,6 +50,7 @@ const props = defineProps({
 const unitName = ref("");
 const unitInfo = ref({});
 const lessons = ref([]);
+const firebaseisLoaded = ref(false);
 
 onMounted(async () => {
   const idsnapshot = await getDocs(
@@ -91,7 +92,8 @@ onMounted(async () => {
     fblessons.push(lessons);
   });
   lessons.value = fblessons;
-  console.log(lessons.value);
+
+  firebaseisLoaded.value = true;
 });
 
 const lessonClick = (lesson) => {
@@ -103,30 +105,32 @@ const lessonClick = (lesson) => {
 
 <template>
   <Header class="header" />
-  <Banner>
-    <template v-slot:title>{{ unitName }}</template>
-    <template v-slot:subtitle>Introduction</template>
-  </Banner>
+  <div v-if="firebaseisLoaded">
+    <Banner>
+      <template v-slot:title>{{ unitName }}</template>
+      <template v-slot:subtitle>Introduction</template>
+    </Banner>
 
-  <div class="intro-section">
-    <div class="introduction">
-      <p>{{ unitInfo.Introduction }}</p>
-    </div>
-    <div class="function-objectives">
-      <h4>Language Functions</h4>
-      <p>{{ unitInfo.Language_Functions }}</p>
-      <h4>Module Objectives</h4>
-      <div v-for="item in unitInfo.Module_Objectives" :key="item.id">
-        <p>• {{ item }}</p>
+    <div class="intro-section">
+      <div class="introduction">
+        <p>{{ unitInfo.Introduction }}</p>
+      </div>
+      <div class="function-objectives">
+        <h4>Language Functions</h4>
+        <p>{{ unitInfo.Language_Functions }}</p>
+        <h4>Module Objectives</h4>
+        <div v-for="item in unitInfo.Module_Objectives" :key="item.id">
+          <p>• {{ item }}</p>
+        </div>
       </div>
     </div>
-  </div>
-  <h1>Lessons</h1>
-  <div class="lesson-view">
-    <div class v-for="lesson in lessons" :key="lesson.id">
-      <LessonCard class="card" @click="lessonClick(lesson)">
-        {{ lesson.Lesson_Name }}
-      </LessonCard>
+    <h1>Lessons</h1>
+    <div class="lesson-view">
+      <div class v-for="lesson in lessons" :key="lesson.id">
+        <LessonCard class="card" @click="lessonClick(lesson)">
+          {{ lesson.Lesson_Name }}
+        </LessonCard>
+      </div>
     </div>
   </div>
 </template>
