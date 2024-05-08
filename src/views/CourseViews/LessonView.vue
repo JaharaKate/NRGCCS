@@ -1,22 +1,75 @@
 <script setup>
 import Header from "@/components/Header.vue";
+import Banner from "@/components/Banner.vue";
+import LessonCard from "@/components/LessonCard.vue";
+import db from "@/main";
+
+import { onMounted, ref } from "vue";
+import {
+  getDoc,
+  getDocs,
+  collection,
+  doc,
+  query,
+  where,
+} from "firebase/firestore";
+import router from "@/router";
+
+const props = defineProps({
+  moduleProp: String,
+  unitProp: String,
+  lessonProp: String,
+});
+
+const lessonItems = ref({});
+const lessonNumber = ref("");
+
+onMounted(async () => {
+  lessonNumber.value = props.lessonProp.replace("Lesson", "Lesson ");
+  const idsnapshot = await getDocs(
+    query(
+      collection(db, "Courses"),
+      where("Course_Name", "==", props.moduleProp)
+    )
+  );
+  let courseid = "";
+  idsnapshot.forEach((doc) => {
+    courseid = doc.id;
+  });
+  const unitSnapshot = await getDoc(
+    doc(db, "Courses", courseid, "Units", props.unitProp)
+  );
+  let unitID = unitSnapshot.id;
+
+  const lessonSnapshot = await getDoc(
+    doc(db, "Courses", courseid, "Units", unitID, "Lessons", props.lessonProp)
+  );
+  const fblesson = {
+    id: lessonSnapshot.id,
+    Lesson_Name: lessonSnapshot.data().Lesson_Name,
+    Objectives: lessonSnapshot.data().Objectives,
+  };
+  lessonItems.value = fblesson;
+  console.log(props.lessonProp);
+});
 </script>
 
 <template>
   <Header />
   <div class="lesson">
-    <p class="lesson-header">Lesson 1 - A Walk that is Always Worthwhile</p>
+    <p class="lesson-header">
+      {{ lessonNumber }}
+      {{ lessonItems.Lesson_Name }}
+    </p>
     <div class="lesson-body">
       <img src="@/assets/img/course1.png" />
       <div class="right-container">
-        <div class="objectives">
+        <ul class="objectives">
           <p>In this lesson, you will learn how to:</p>
-          <p>1. Express your ideas about walking in the park.</p>
-          <p>
-            2. Describe your experiences about visiting parks using complex
-            question tags.
-          </p>
-        </div>
+          <div v-for="item in lessonItems.Objectives" :key="item.id">
+            <li>{{ item }}</li>
+          </div>
+        </ul>
         <button>
           <p>Begin Lesson</p>
         </button>
@@ -63,10 +116,7 @@ import Header from "@/components/Header.vue";
       justify-content: space-around;
       text-wrap: wrap;
       align-items: start;
-
-      p {
-        font-size: 2.4em;
-      }
+      font-size: 2.4em;
 
       button {
         background-color: #ad0606;
