@@ -1,15 +1,12 @@
-<template>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <img src="/src/assets/img/nrgccs.png" alt="NRGCCS Logo" class="logo" />
-      <ul class="navbar-menu">
-        <li><a href="home">Home</a></li>
-        <li><a href="about">Overview</a></li>
-        <li><a href="courses">Courses</a></li>
-      </ul>
-    </div>
-  </nav>
+<script setup>
+import Header from "@/components/Header.vue";
+import { onMounted } from "vue";
 
+onMounted(() => {});
+</script>
+
+<template>
+  <Header class="header" />
   <v-container fluid class="home-section">
     <v-layout row wrap>
       <v-flex>
@@ -141,13 +138,14 @@
   </v-container>
 </template>
 
-<script>
-export default {
-  name: "HomeSection",
-};
-</script>
-
 <style scoped>
+/* .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+} */
 .navbar {
   background-color: whitesmoke;
   position: absolute;
