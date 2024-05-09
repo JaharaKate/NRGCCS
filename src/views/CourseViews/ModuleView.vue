@@ -1,9 +1,11 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import Banner from "@/components/Banner.vue";
+import UnitCard from "@/components/UnitCard.vue";
 import db from "@/main";
 import { onMounted, ref } from "vue";
 import { getDocs, collection, where, query } from "firebase/firestore";
+import router from "@/router";
 
 const props = defineProps({
   moduleProp: String,
@@ -38,16 +40,22 @@ onMounted(async () => {
   });
   units.value = fbunits;
 });
+
+const unitClick = (unit) => {
+  router.push("/courses/" + props.moduleProp + "/" + unit.id);
+};
 </script>
 
 <template>
   <Header class="header"></Header>
   <Banner>
     <template v-slot:title>{{ moduleName }}</template>
-    <template v-slot:subtitle></template>
+    <template v-slot:subtitle>Units</template>
   </Banner>
-  <div class v-for="unit in units" :key="unit.id">
-    <p>{{ unit.id }} : {{ unit.Unit_Name }}</p>
+  <div class="unit-section" v-for="unit in units" :key="unit.id">
+    <UnitCard class="unit-card" @click="unitClick(unit)"
+      >{{ unit.id.replace("Unit", "Unit ") }} - {{ unit.Unit_Name }}</UnitCard
+    >
   </div>
 </template>
 
@@ -59,5 +67,14 @@ onMounted(async () => {
   left: 0;
   width: 100%;
   z-index: 200;
+}
+.unit-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.unit-card {
+  margin-top: 2%;
+  margin-bottom: 1%;
 }
 </style>
